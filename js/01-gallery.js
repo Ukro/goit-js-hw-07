@@ -7,9 +7,20 @@ const listEl = document.querySelector(".gallery");
 const renderList = (arr, container) => {
     const markup = arr
       .map(
-        (item) => `<li  class="item js-product-item">
-    <img src="${item.preview}" width="300" />
+        (item) => `<li  class="gallery__item item js-product-item">
    
+    
+
+    <a class="gallery__link" href="${item.original}">
+      <img
+        class="gallery__image"
+        src="${item.preview}"
+        data-source="${item.original}"
+        alt="${item.description}"
+        width="350"
+      />
+    </a>
+
     
     </li>`
       )
