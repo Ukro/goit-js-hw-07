@@ -29,27 +29,49 @@ const renderList = (arr, container) => {
     container.insertAdjacentHTML("beforeend", markup);
   };
   
-  const handleListClick = (event) => {
-    if (event.currentTarget === event.target) {
-      return;
-    }
-    const currentListItem = event.target.closest(".js-product-item");
-     const currentListItemId = currentListItem.description;
-     const product = galleryItems.find((item) => item.description === currentListItemId);
-  console.log(product);
-    const modalInstance = basicLightbox.create(`<div class="modal">
+//   const handleListClick = (event) => {
+//     if (event.currentTarget === event.target) {
+//       return;
+//     }
+//     const currentListItem = event.target.closest(".js-product-item");
+//      const currentListItemId = currentListItem.description;
+//      const product = galleryItems.find((item) => item.description === currentListItemId);
+//   console.log(product);
+//     const modalInstance = basicLightbox.create(`<div class="modal">
     
 
-      <img src="${product.preview}" />
+//       <img src="${product.preview}" />
       
-      <p>${product.description}</p>
-    </div>`);
+//       <p>${product.description}</p>
+//     </div>`);
   
-    modalInstance.show();
-  };
+//     modalInstance.show();
+//   };
   
   renderList(galleryItems, listEl);
-  listEl.addEventListener("click", handleListClick);
+   listEl.addEventListener("click", handleListClick);
   
 
 //console.log(galleryItems);
+
+//==================
+
+// // Get the gallery items
+// var galleryItems = document.querySelectorAll('.gallery__item');
+
+// // Add a click listener to each gallery item
+// galleryItems.forEach(function(item) {
+//   item.addEventListener('click', openLightbox);
+// });
+
+// // Open the lightbox
+// function openLightbox(event) {
+//   // Prevent the default action of the link
+//   event.preventDefault();
+
+//   // Get the large image url
+//   var largeImageUrl = event.target.dataset.source;
+
+//   // Open the lightbox with the large image
+//   basicLightbox.openImage(largeImageUrl);
+//}
