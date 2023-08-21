@@ -15,32 +15,26 @@ const createGalleryItemMarkup = ({ preview, description, original }) => {
 `;
 };
 
+const galleryList = document.querySelector('.gallery');
+const galleryMarkup = galleryItems.map(createGalleryItemMarkup).join('');
+galleryList.insertAdjacentHTML('afterbegin', galleryMarkup);
+
+console.log(galleryMarkup);
 galleryList.addEventListener('click', onGalleryItemClick);
 
-function onGalleryItemClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== 'IMG') {
+function onGalleryItemClick(evnt) {
+  evnt.preventDefault();
+  if  (evnt.target.nodeName !==  'IMG') {
     return;
   }
-
   const instance = basicLightbox.create(`
-    <div class="modal">
+  <div class="modal">
       <img
-        src=${event.target.dataset.source}
-        alt=${event.target.alt}
-      />
-    </div>
-  `);
+    src=${evnt.target.dataset.source}
+    alt=${evnt.target.alt}
+  />
+  </div>
+`);
 
   instance.show();
-
-  const modalElement = document.querySelector('.basicLightbox');
-  modalElement.addEventListener('click', closeModal);
-
-  function closeModal(event) {
-    if (event.target === modalElement || event.target.classList.contains('basicLightbox')) {
-      instance.close();
-      modalElement.removeEventListener('click', closeModal);
-    }
-  }
 }
