@@ -24,7 +24,7 @@ galleryList.addEventListener('click', onGalleryItemClick);
 
 function onGalleryItemClick(evnt) {
   evnt.preventDefault();
-  if  if(evnt.target.nodeName !==  «IMG») {
+  if  if(evnt.target.nodeName !==  'IMG') {
     return;
   }
   const instance = basicLightbox.create(`
