@@ -37,4 +37,15 @@ function onGalleryItemClick(evnt) {
 `);
 
   instance.show();
+
+  const modalElement = document.querySelector('.basicLightbox');
+modalElement.addEventListener('click', closeModal);
+
+function closeModal(event) {
+  if (event.target === modalElement || event.target.classList.contains('basicLightbox')) {
+    instance.close();
+    modalElement.removeEventListener('click', closeModal);
+  }
+}
+
 }
